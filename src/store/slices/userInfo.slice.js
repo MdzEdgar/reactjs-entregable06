@@ -1,0 +1,45 @@
+import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { axiosEcommerce } from "../../utils/configAxios";
+
+const initialState ={
+  user: {
+      id: 0,
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      createdAt: "",
+      updatedAt: ""
+  },
+  token: ""
+}
+
+const userInfoSlice = createSlice({
+  name: "userInfo",
+  initialState: localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : initialState ,
+  reducers:{
+    setUserInfoGlobal: (state, action) => {
+      return action.payload
+    }
+  }
+})
+
+const {setUserInfoGlobal} = userInfoSlice.actions
+
+export const loginUser = (data) => (dispatch) => {
+  axiosEcommerce
+      .post("/users/login", data)
+      .then((res) => {
+        localStorage.setItem("userInfo", JSON.stringify(res.data))
+        dispatch(setUserInfoGlobal(res.data))
+      })
+      .catch((err) => console.log(err))
+}
+
+export const userLogOut = () => (dispatch) => {
+  localStorage.removeItem()
+  dispatch(setUserInfoGlobal(initialState))
+}
+
+export default userInfoSlice.reducer

@@ -1,13 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../components/Home/ProductCard'
+import { axiosEcommerce } from '../utils/configAxios'
 
 const Home = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    const URL = "https://e-commerce-api-v2.academlo.tech/api/v1/products"
-    axios.get(URL)
+    axiosEcommerce
+      .get("/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err))
   }, [])

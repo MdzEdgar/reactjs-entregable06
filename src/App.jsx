@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import ProtectedUserLogged from './components/App/ProtectedUserLogged'
+import Navbar from './components/Layout/Navbar'
 import Cart from './pages/Cart'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -10,13 +12,16 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Ecommerce</h2> 
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/products/:id' element={<Product />} />
-        <Route path='/purchases' element={<Purchases />} />
-        <Route path='/cart' element={<Cart />} />
+
+        <Route element={<ProtectedUserLogged />}>
+          <Route path='/purchases' element={<Purchases />} />
+          <Route path='/cart' element={<Cart />} />
+        </Route>
       </Routes>
     </div>
   )
