@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatDateDDMMYY } from '../../utils/date';
 
 const PurchaseCard = ({purchase}) => {
   return (
@@ -10,7 +11,7 @@ const PurchaseCard = ({purchase}) => {
         <h4>{purchase?.product.title}</h4>
       </div>
       <div>
-        <h4>{purchase?.createdAt}</h4>
+        <h4>{formatDateDDMMYY(purchase?.createdAt)}</h4>
         <div>
           <h4>{purchase?.quantity}</h4>
         </div>
