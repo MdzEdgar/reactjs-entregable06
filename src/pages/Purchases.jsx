@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react'
-import { axiosEcommerce } from '../utils/configAxios'
+import React, { useEffect, useState } from 'react'
+import PurchaseCard from '../components/Purchases/PurchaseCard'
+import { axiosEcommerce, getConfig } from '../utils/configAxios'
 
 const Purchases = () => {
+  const [purchases, setPurchases] = useState()
 
-useEffect(() => {
-
-  const config = {
-    headers: {
-      "Authorization": `Bearer ${JSON.parse(localStorage.getItem("userInfo")).token
-      }` 
-    }
-  }
-
-  axiosEcommerce.get("/purchases", config)
-    .then((res) => console.log(res.data))
-    .catch((err) => console.log(err))
-}, [])
+  useEffect(() => {
+    axiosEcommerce
+      .get("/purchases", getConfig())
+      .then((res) => setPurchases(res.data))
+      .catch((err) => console.log(err))
+  }, [])
 
   return (
     <main>
@@ -23,24 +18,12 @@ useEffect(() => {
         <section>
           <h3>My purchases</h3>
           <section>
-
-            <article>
-              <div>
-                <div>
-                  <img src="" alt="" />
-                </div>
-                <h4>Samsung</h4>
-                </div>
-              <div>
-                <h4>2/22/2023</h4>
-              </div>
-            </article>
-
+            {purchases?.map((purchase) => <PurchaseCard purchase={purchase} key={purchase?.id}/> )}
           </section>
         </section>
       </section>
     </main>
-  )
+  );
 }
 
 export default Purchases
