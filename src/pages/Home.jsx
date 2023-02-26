@@ -15,13 +15,11 @@ const Home = () => {
 
   return (
     <main>
-
       <section>
         {
           products.map(product => <ProductCard  key={product.id}  product={product}/>)
         }
       </section>
-
     </main>
   )
 }
