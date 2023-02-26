@@ -38,7 +38,7 @@ export const loginUser = (data) => (dispatch) => {
 }
 
 export const userLogOut = () => (dispatch) => {
-  localStorage.removeItem()
+  localStorage.removeItem("userInfo")
   dispatch(setUserInfoGlobal(initialState))
 }
 
