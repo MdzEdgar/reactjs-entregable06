@@ -1,0 +1,32 @@
+.product {
+  padding: 20px;
+}
+
+.product__detail-imgContainer {
+  height: 380px;
+  overflow: hidden;
+}
+
+.product__detail-img{
+  height: 100%;
+  width: 100%;
+}
+
+.product__detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product__similarContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  justify-content: center;
+  grid-template-rows: auto;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
