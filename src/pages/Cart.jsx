@@ -8,6 +8,11 @@ const Cart = () => {
 
   const dispatch = useDispatch()
 
+  const totalPriceCart = products.reduce(
+    (total, product) => total + product.quantity * product.product.price,
+    0
+  );
+
   useEffect(() => {
     dispatch(getAllCartProducts())
   }, [])
@@ -15,10 +20,19 @@ const Cart = () => {
   return (
     <main>
       <section>
-        {products.map((product) => <CartProduct key={product.id} product={product} />)
-        }
-        
+        {products.map((product) => (
+          <CartProduct key={product.id} product={product} />
+        ))}
+        <section>
+          <hr />
+        </section>
+        <div>
+          <h3>Total</h3>
+          <h3>$ {totalPriceCart}</h3>
+        </div>
+        <button>Checkout</button>
       </section>
+
     </main>
   )
 }
