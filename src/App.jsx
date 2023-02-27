@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import ProtectedUserLogged from './components/App/ProtectedUserLogged'
@@ -12,11 +12,14 @@ import Purchases from './pages/Purchases'
 import { getAllCartProducts } from './store/slices/cart.slice'
 
 function App() {
+  const {token} = useSelector(store => store.userInfo)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllCartProducts())
-  }, [])
+    if(token){
+      dispatch(getAllCartProducts())
+    }
+  }, [token])
 
   return (
     <div className="App">
