@@ -1,7 +1,7 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../components/Home/ProductCard'
 import { axiosEcommerce } from '../utils/configAxios'
+import "./styles/Home.css"
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -14,11 +14,11 @@ const Home = () => {
   }, [])
 
   return (
-    <main>
-      <section>
-        {
-          products.map(product => <ProductCard  key={product.id}  product={product}/>)
-        }
+    <main className='home'>
+      <section className='home__listProducts'>
+        {products.map(product => (
+          <ProductCard  key={product.id}  product={product}/>
+        ))}
       </section>
     </main>
   )
