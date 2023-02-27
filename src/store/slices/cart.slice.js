@@ -37,4 +37,10 @@ export const deleteProductCart = (id) => (dispatch) => {
   .catch((err) => console.log(err))
 }
 
+export const updateProductCart = (id, data) => (dispatch) => {
+  axiosEcommerce.put(`/cart/${id}`, data, getConfig())
+    .then((res) => dispatch(getAllCartProducts()))
+    .catch((err) => console.log(err))
+}
+
 export default cartSlice.reducer

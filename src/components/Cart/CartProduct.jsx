@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { deleteProductCart } from '../../store/slices/cart.slice';
+import { deleteProductCart, updateProductCart } from '../../store/slices/cart.slice';
 
 const CartProduct = ({product}) => {
 
@@ -8,6 +8,26 @@ const CartProduct = ({product}) => {
 
   const handleDeleteCartProduct = () => {
     dispatch(deleteProductCart(product.id))
+  }
+
+  const handleClickPlus = () => {
+    const newQuantity = product.quantity + 1
+    const data = {
+      quantity: newQuantity
+    }
+    dispatch(updateProductCart(product.id, data))
+  }
+
+  const handleClickLess = () => {
+    const newQuantity = product.quantity - 1
+    if(newQuantity <= 0) {
+      dispatch(deleteProductCart(product.id))
+    }else{
+      const data = {
+        quantity: newQuantity
+      }
+      dispatch(updateProductCart(product.id, data))
+    }
   }
 
   return (
@@ -19,9 +39,9 @@ const CartProduct = ({product}) => {
         <h3>{product.product.title}</h3>
 
         <div>
-          <button>-</button>
+          <button onClick={handleClickLess}>-</button>
           <h3>{product.quantity}</h3>
-          <button>+</button>
+          <button onClick={handleClickPlus}>+</button>
         </div>
       </section>
       <section>
