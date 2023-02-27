@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className='navbar__containerLinks'>
         <Link className='navbar__link' to="/login" ><i className='bx bx-user'></i></Link>
         <Link className='navbar__link' to="/purchases"><i className='bx bx-box'></i></Link>
-        <Link className='navbar__link' to="/cart"><i className='bx bx-cart'></i> <span>{token ? products.length : ""}</span> </Link>
+        <Link className='navbar__link' to="/cart"><i className='bx bx-cart'></i> {token ? <span>{products.length}</span> : ""} </Link>
       </div>
     </nav>
   )
