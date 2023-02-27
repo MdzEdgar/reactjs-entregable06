@@ -15,7 +15,7 @@ const cartSlice = createSlice({
   }
 })
 
-const { setProductsCartGlobal } = cartSlice.actions
+export const { setProductsCartGlobal } = cartSlice.actions
 
 export const getAllCartProducts = () => (dispatch) => {
   axiosEcommerce
