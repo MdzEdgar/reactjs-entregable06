@@ -18,14 +18,15 @@ const cartSlice = createSlice({
 const { setProductsCartGlobal } = cartSlice.actions
 
 export const getAllCartProducts = () => (dispatch) => {
-  axiosEcommerce.get("/cart", getConfig()) 
+  axiosEcommerce
+  .get("/cart", getConfig()) 
     .then((res) => dispatch(setProductsCartGlobal(res.data)))
     .catch((err) => console.log(err))
 }
 
 export const addProductCart = (data) => (dispatch) => {
   axiosEcommerce.post("/cart",data , getConfig())
-  .then((res) => console.log((res.data)))
+  .then((res) => dispatch(getAllCartProducts()))
   .catch((err) => console.log(err))
 }
 
