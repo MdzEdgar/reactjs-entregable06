@@ -16,6 +16,7 @@ const CartProduct = ({product}) => {
         </div>
       </section>
       <section>
+        <i className="bx bx-trash"></i>
         <h3>Total</h3>
         <h3>$ {product.quantity * product.product.price}</h3>
       </section>

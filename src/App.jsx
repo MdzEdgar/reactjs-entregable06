@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import ProtectedUserLogged from './components/App/ProtectedUserLogged'
@@ -7,8 +9,14 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Product from './pages/Product'
 import Purchases from './pages/Purchases'
+import { getAllCartProducts } from './store/slices/cart.slice'
 
 function App() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAllCartProducts())
+  }, [])
 
   return (
     <div className="App">
@@ -22,6 +30,7 @@ function App() {
           <Route path='/purchases' element={<Purchases />} />
           <Route path='/cart' element={<Cart />} />
         </Route>
+
       </Routes>
     </div>
   )
