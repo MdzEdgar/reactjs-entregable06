@@ -1,6 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { deleteProductCart } from '../../store/slices/cart.slice';
 
 const CartProduct = ({product}) => {
+
+  const dispatch = useDispatch()
+
+  const handleDeleteCartProduct = () => {
+    dispatch(deleteProductCart(product.id))
+  }
+
   return (
     <article>
       <div>
@@ -16,7 +25,7 @@ const CartProduct = ({product}) => {
         </div>
       </section>
       <section>
-        <i className="bx bx-trash"></i>
+        <i onClick={handleDeleteCartProduct} className="bx bx-trash"></i>
         <h3>Total</h3>
         <h3>$ {product.quantity * product.product.price}</h3>
       </section>
