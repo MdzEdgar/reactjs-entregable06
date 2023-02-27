@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CartProduct from '../components/Cart/CartProduct'
-import { getAllCartProducts } from '../store/slices/cart.slice'
+import { getAllCartProducts, purchaseCart } from '../store/slices/cart.slice'
 
 const Cart = () => {
   const {products} = useSelector(store => store.cart)
@@ -12,6 +12,10 @@ const Cart = () => {
     (total, product) => total + product.quantity * product.product.price,
     0
   );
+
+  const handlePurchaseCart = () => {
+    dispatch(purchaseCart())
+  }
 
   useEffect(() => {
     dispatch(getAllCartProducts())
@@ -30,7 +34,7 @@ const Cart = () => {
           <h3>Total</h3>
           <h3>$ {totalPriceCart}</h3>
         </div>
-        <button>Checkout</button>
+        <button onClick={handlePurchaseCart}>Checkout</button>
       </section>
 
     </main>
