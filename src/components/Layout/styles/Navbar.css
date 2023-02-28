@@ -38,7 +38,7 @@
   aspect-ratio: 1;
   font-weight: bold;
   position: absolute;
-  right: -3;
+  right: -3px;
   bottom: -5px;
   display: grid;
   place-content: center;
