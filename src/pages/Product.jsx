@@ -48,8 +48,9 @@ const Product = () => {
 
   const handleClickPrevious = () => {
     const newIndexSlider = indexSlider -1
+    const lastPosition = arrayClassesSlider.length - 1
     if(newIndexSlider < 0){
-      setIndexSlider(2)
+      setIndexSlider(lastPosition)
     }else{
       setIndexSlider(newIndexSlider)
     }
