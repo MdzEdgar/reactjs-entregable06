@@ -93,6 +93,12 @@
   margin: 40px 0;
 }
 
+.product__titleSimilar {
+  margin: 20px 0;
+  color: var(--primary);
+  font-size: 20px;
+}
+
 .product__similarContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
