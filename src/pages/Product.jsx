@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { set } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import ProductCard from '../components/Home/ProductCard'
@@ -6,10 +7,13 @@ import { addProductCart } from '../store/slices/cart.slice'
 import { axiosEcommerce } from '../utils/configAxios'
 import "./styles/Product.css"
 
+const arrayClassesSlider = ["first", "second", "third"]
+
 const Product = () => {
   const [product, setProduct] = useState()
   const [quantity, setQuantity] = useState(1)
   const [similarProducts, setsimilarProducts] = useState([])
+  const [indexSlider, setIndexSlider] = useState(0)
 
   const {id} = useParams()
 
@@ -32,6 +36,25 @@ const Product = () => {
     dispatch(addProductCart(data))
   }
 
+  const handleClickNext = () => {
+    const newIndexSlider = indexSlider + 1
+    const lastPosition = arrayClassesSlider.length - 1
+    if(newIndexSlider > lastPosition){
+      setIndexSlider(0)
+    } else{
+      setIndexSlider(newIndexSlider)
+    }
+  }
+
+  const handleClickPrevious = () => {
+    const newIndexSlider = indexSlider -1
+    if(newIndexSlider < 0){
+      setIndexSlider(2)
+    }else{
+      setIndexSlider(newIndexSlider)
+    }
+  }
+
   useEffect(() => {
     axiosEcommerce
       .get(`/products/${id}`)
@@ -44,11 +67,9 @@ const Product = () => {
       axiosEcommerce
         .get(`/products?categoryId=${product?.categoryId}`)
         .then((res) => {
-          console.log(product)
           const newSimilarProducts = res.data.filter(
             (productByCategory) => productByCategory.id !== product.id
           )
-          console.log(newSimilarProducts)
           setsimilarProducts(newSimilarProducts)
         })
         .catch((err) => console.log(err))
@@ -63,11 +84,26 @@ const Product = () => {
     <main className='product'>
       <section className='product__detail'>
         {/* Parte superior */}
-        <section className='product__detail-imgContainer'>
-          <div className='product__detail-img'>
-            <img src={product?.images[0].url} alt="" />
+        <section className="product__slider">
+          <section className={`product__detail-imgContainer ${arrayClassesSlider[indexSlider]}`}>
+            <div className='product__detail-img'>
+              <img src={product?.images[0].url} alt="" />
+            </div>
+            <div className='product__detail-img'>
+              <img src={product?.images[1].url} alt="" />
+            </div>
+            <div className='product__detail-img'>
+              <img src={product?.images[2].url} alt="" />
+            </div>
+          </section>
+          <div onClick={handleClickPrevious} className='product__btnLeft'>
+            <i className='bx bx-chevron-left'></i>
+          </div>
+          <div onClick={handleClickNext} className='product__btnRight'>
+            <i className='bx bx-chevron-right'></i>
           </div>
         </section>
+        
 
         {/* Parte inferior */}
         <section className='product__detail-infoContainer'>
