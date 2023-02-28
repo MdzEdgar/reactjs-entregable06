@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Notification from './components/App/Notification'
 import ProtectedUserLogged from './components/App/ProtectedUserLogged'
 import Navbar from './components/Layout/Navbar'
 import Cart from './pages/Cart'
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Notification />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
