@@ -33,7 +33,7 @@ export const addProductCart = (data) => (dispatch) => {
     .post("/cart",data , getConfig())
     .then((res) => dispatch(getAllCartProducts()))
     .catch((err) => {
-      /*console.log(err)*/
+      console.log(err)
       if(err.response.data?.error === "Product already added to cart"){
         dispatch(setChangeErrorStatus())
         setTimeout(() => {
