@@ -44,9 +44,11 @@ const Product = () => {
       axiosEcommerce
         .get(`/products?categoryId=${product?.categoryId}`)
         .then((res) => {
+          console.log(product)
           const newSimilarProducts = res.data.filter(
-            (productByCategory) => productByCategory !== product.id
+            (productByCategory) => productByCategory.id !== product.id
           )
+          console.log(newSimilarProducts)
           setsimilarProducts(newSimilarProducts)
         })
         .catch((err) => console.log(err))
