@@ -39,15 +39,18 @@ const CartProduct = ({product}) => {
       <section className="cartProduct__info">
         <h3 className="cartProduct__title">{product.product.title}</h3>
 
-        <div className="cartProduct__quantity">
-          <button onClick={handleClickLess}><i className='bx bx-minus' ></i></button>
-          <h3 className="quantity-value">{product.quantity}</h3>
-          <button onClick={handleClickPlus}><i className='bx bx-plus'></i></button>
+        <div className="cartProduct__quantityContainer">
+          <div className="cartProduct__quantity">
+            <button onClick={handleClickLess}><i className='bx bx-minus' ></i></button>
+            <h3 className="quantity-value">{product.quantity}</h3>
+            <button onClick={handleClickPlus}><i className='bx bx-plus'></i></button>
+            
+          </div>
+          <i onClick={handleDeleteCartProduct} className="cartProduct__delete bx bx-trash"></i>
         </div>
       </section>
 
       <section className="cartProduct__total">
-        <i onClick={handleDeleteCartProduct} className="bx bx-trash"></i>
         <h3 className="cartProduct__total-title">Total:</h3>
         <h3 className="cartProduct__total-value">
           $ {product.quantity * product.product.price}
