@@ -30,6 +30,10 @@
   position: relative;
 }
 
+.navbar__link i:hover {
+  color: #f85555;
+}
+
 .navbar__link span {
   background-color: var(--primary);
   font-size: 17px;
