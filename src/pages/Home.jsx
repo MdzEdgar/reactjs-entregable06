@@ -46,11 +46,11 @@ const Home = () => {
 
   return (
     <main className="home">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input id="nameProduct" type="text" />
-          <button>
-            <i className="bx bx-search"></i>
+      <form className='home__form' onSubmit={handleSubmit}>
+        <div className='home__form-search'>
+          <input className='home__form-input' id="nameProduct" type="text" placeholder="What are you looking for?" />
+          <button className='home__form-btn'>
+            <i className="home__form-icon bx bx-search"></i>
           </button>
         </div>
         <div>
