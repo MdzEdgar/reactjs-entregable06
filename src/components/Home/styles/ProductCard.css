@@ -61,6 +61,12 @@
   margin-top: 3px;
 }
 
+h3.productCard__title {
+  display: flex;
+  align-items: center;
+ height: 60px;
+}
+
 .productCard__priceTitle {
   margin-top: 20px;
   font-weight: normal;
@@ -68,7 +74,7 @@
 
 .productCard__btn {
   position: absolute;
-  top: 90px;
+  top: 140px;
   right: 25px;
   color: white;
   background-color: var(--primary);
