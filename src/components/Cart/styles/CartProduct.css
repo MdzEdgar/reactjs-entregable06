@@ -105,10 +105,24 @@
   padding-right: 6px;
 }
 
-@media (min-width: 550px) {
-
+@media (min-width: 500px) {
   .cartProduct {
-    grid-column-start: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .cartProduct__img {
+    width: max(150px, 30%);
+  }
+
+  .cartProduct__info {
+    width: min(350px, 55%);
+  }
+
+  .cartProduct__total {
+    width: min(150px, 25%);
   }
 
 }
