@@ -53,12 +53,15 @@ const Home = () => {
             <i className="home__form-icon bx bx-search"></i>
           </button>
         </div>
-        <div>
-          <h3>Categories</h3>
-          <ul>
-            <li onClick={() => setCategoryFilter(0)} >All</li>
+        <div className='home__filterCategory'>
+          <div className="filter__header">
+          <h3 className='home__filterCategory-title'>Categories </h3>
+            <i className='bx bx-chevron-down' ></i>
+          </div>
+          <ul className='home__categoryList'>
+            <li className='categoryList__element' onClick={() => setCategoryFilter(0)} >All</li>
             {categories.map((category) => (
-              <li
+              <li className='categoryList__element'
                 onClick={() => setCategoryFilter(category.id)}
                 key={category.id}
               >
