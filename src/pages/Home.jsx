@@ -9,11 +9,16 @@ const Home = () => {
   const [nameFilter, setNameFilter] = useState("")
   const [filterProducts, setFilterProducts] = useState([])
   const [categoryFilter, setCategoryFilter] = useState(0)
+  const [isShow, setIsShow] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const nameProduct = e.target.nameProduct.value
     setNameFilter(nameProduct)
+  }
+
+  const handleClickShow = () => {
+    setIsShow(!isShow)
   }
 
   useEffect(() => {
@@ -54,11 +59,11 @@ const Home = () => {
           </button>
         </div>
         <div className='home__filterCategory'>
-          <div className="filter__header">
+          <div onClick={handleClickShow} className="filter__header">
           <h3 className='home__filterCategory-title'>Categories </h3>
-            <i className='bx bx-chevron-down' ></i>
+            <i className={`bx bx-chevron-down filter__icon ${isShow ? "show" : ""}`} ></i>
           </div>
-          <ul className='home__categoryList'>
+          <ul className={`home__categoryList ${isShow ? "show" : ""}`}>
             <li className='categoryList__element' onClick={() => setCategoryFilter(0)} >All</li>
             {categories.map((category) => (
               <li className='categoryList__element'

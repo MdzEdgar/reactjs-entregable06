@@ -72,6 +72,7 @@
 
 .filter__header i {
   font-size: 24px;
+  transition: all .5s ease;
 }
 
 .filter__header i:hover {
@@ -79,14 +80,20 @@
 }
 
 .home__categoryList {
-  /* display: flex; */
   display: none;
   flex-direction: column;
   gap: 5px;
 }
 
-.down {
+.show {
   display: flex;
+  
+}
+
+.filter__icon.show {
+  display: block;
+  transform: rotate(180deg);
+  transition: all .5s ease;
 }
 
 .categoryList__element {
