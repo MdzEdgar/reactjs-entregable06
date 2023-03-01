@@ -86,6 +86,7 @@
 .cartProduct__delete {
   cursor: pointer;
   font-size: 22px;
+  transition: color 200ms ease;
 }
 
 .cartProduct__delete:hover {
@@ -102,4 +103,12 @@
   width: 80px;
   text-align: right;
   padding-right: 6px;
+}
+
+@media (min-width: 550px) {
+
+  .cartProduct {
+    grid-column-start: 1;
+  }
+
 }
