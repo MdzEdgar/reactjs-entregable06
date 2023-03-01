@@ -25,6 +25,10 @@
   transition: border 200ms ease;
 }
 
+.home__form-input::placeholder {
+  opacity: 0.4;
+}
+
 .home__form-input:focus {
   border: 1px solid var(--primary);
 }
