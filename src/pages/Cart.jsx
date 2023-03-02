@@ -36,7 +36,7 @@ const Cart = () => {
           <h3 className='cart__checkout-total'>Total</h3>
           <h3 className='cart__checkout-totalValue'>$ {totalPriceCart}</h3>
         </div>
-        <button className='cart__checkout-btn' onClick={handlePurchaseCart}>Checkout</button>
+        <button className='cart__checkout-btn' onClick={handlePurchaseCart} >Checkout</button>
       </section>
 
     </main>
