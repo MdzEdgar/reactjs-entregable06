@@ -157,5 +157,29 @@
   margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+  .product__detail {
+    display: flex;
+  }
+
+  .product__detail-img {
+    width: 50%;
+    padding: 25px;
+  }
+
+  .product__slider {
+    width: 50%;
+  }
+
+  .product__detail-infoContainer {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  
+  .product {
+    max-width: 1200px;
+  }
+}
 
 
