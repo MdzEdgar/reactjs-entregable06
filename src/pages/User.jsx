@@ -1,11 +1,19 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { userLogOut } from '../store/slices/userInfo.slice'
 import "./styles/User.css"
 
 const User = () => {
   const {
+    token,
     user: {firstName, lastName, email},
   } = useSelector(store => store.userInfo)
+
+  const dispatch = useDispatch()
+
+  const handleLogOut = () => {
+    dispatch(userLogOut())
+  }
 
   return (
     <main className='userInfo'>
@@ -19,7 +27,7 @@ const User = () => {
             <div className="userInfo__email"><i className='bx bx-envelope' ></i><span>{email}</span> </div>
             <div className="userInfo__phone"><i className='bx bx-phone' ></i><span>1234567890</span></div>
           </div>
-          <button className='userInfo__btn'>Log Out</button>
+          <button onClick={handleLogOut} className='userInfo__btn'>Log Out</button>
         </section>
       </div>
     </main>

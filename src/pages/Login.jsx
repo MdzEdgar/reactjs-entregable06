@@ -2,15 +2,14 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import { loginUser, userLogOut } from '../store/slices/userInfo.slice'
+import { loginUser } from '../store/slices/userInfo.slice'
 import "./styles/Login.css"
 
 const Login = () => {
   const {register, handleSubmit, reset} = useForm()
 
   const {
-    token, 
-    user: {firstName, lastName},
+    token
   } = useSelector(store => store.userInfo)
 
   const dispatch = useDispatch()
@@ -21,10 +20,6 @@ const Login = () => {
       email: "",
       password: ""
     })
-  }
-
-  const handleLogOut = () => {
-    dispatch(userLogOut())
   }
 
   return (
