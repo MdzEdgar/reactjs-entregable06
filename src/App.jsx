@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Product from './pages/Product'
 import Purchases from './pages/Purchases'
+import User from './pages/User'
 import { getAllCartProducts } from './store/slices/cart.slice'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route element={<ProtectedUserLogged />}>
           <Route path='/purchases' element={<Purchases />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/user' element={<User/>} />
         </Route>
 
       </Routes>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 import { loginUser, userLogOut } from '../store/slices/userInfo.slice'
 import "./styles/Login.css"
 
@@ -30,12 +31,7 @@ const Login = () => {
     <main className='login'>
       {
         token ? (
-          <section className='login-logged__container'>
-            <i className='login-logged__icon bx bxs-user-circle'></i>
-            <h3 className='login-logged__name'>{firstName} {lastName}
-            </h3>
-            <button className='login-logged__btn' onClick={handleLogOut}>Log out</button>
-          </section>
+          <Navigate to="/user" />
         ) : (
         <form className='login-form__container' onSubmit={handleSubmit(submit)}>
         <h3 className='login-form__title'>Welcome! Enter your email and password to continue</h3>

@@ -1,0 +1,73 @@
+.userInfo {
+  background-color: var(--ultra-light-gray);
+  min-height: calc(100vh - 43px);
+  display: grid;
+  place-content: center;
+}
+
+.userInfo__container {
+  background-color: white;
+padding: 20px;
+border-radius: 10px;
+color: var(--dark-gray);
+width: min(350px, 90vw);
+}
+
+.userInfo__welcome {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.userInfo__welcome span {
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #f84242;
+}
+
+.userInfo__data {
+  background-color: #d7f4fc;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.userInfo__data h4 {
+  text-align: center;
+  font-size: 19px;
+}
+
+.userInfo__data div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.userInfo__data div i {
+  font-size: 30px;
+}
+
+.userInfo__data span{
+  text-transform: capitalize;
+  font-size: 23px;
+}
+.userInfo__email span{
+  text-transform: lowercase;
+}
+
+.userInfo__btn {
+  width: min(350px, 100%);
+  height: 40px;
+  border: none;
+  background-color: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 300ms ease;
+  border-radius: 4px;
+}
+
+.userInfo__btn:hover {
+  background-color: #f84242;
+  color: #f0ebeb;
+}
