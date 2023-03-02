@@ -6,7 +6,7 @@ import "./styles/User.css"
 const User = () => {
   const {
     token,
-    user: {firstName, lastName, email},
+    user: {firstName, lastName, email, phone},
   } = useSelector(store => store.userInfo)
 
   const dispatch = useDispatch()
@@ -25,7 +25,7 @@ const User = () => {
             <div className="userInfo__firstName"><i className='bx bxs-user-circle'></i><span>{firstName}</span></div>
             <div className="userInfo__lastName"><i className='bx bxs-user-account' ></i><span>{lastName}</span></div>
             <div className="userInfo__email"><i className='bx bx-envelope' ></i><span>{email}</span> </div>
-            <div className="userInfo__phone"><i className='bx bx-phone' ></i><span>1234567890</span></div>
+            <div className="userInfo__phone"><i className='bx bx-phone' ></i><span>{phone}</span></div>
           </div>
           <button onClick={handleLogOut} className='userInfo__btn'>Log Out</button>
         </section>
