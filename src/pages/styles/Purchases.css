@@ -1,25 +1,29 @@
 .purchases {
   background-color: #fff;
+  display: grid;
+  place-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.purchases__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 25px;
 }
 
 .purchases__title {
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 10px;
+  padding: 20px 15px;
   color: #515151;
-  position: inherit;
+  text-align: center;
 }
 
 .purchases__info {
-  align-items: center;
   display: flex;
-  padding-top: 20px;
   flex-direction: column;
-  gap: 100px;
+  align-items: center;
+  gap: 35px;
 }

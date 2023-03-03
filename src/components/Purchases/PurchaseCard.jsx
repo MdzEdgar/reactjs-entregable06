@@ -4,8 +4,8 @@ import "./styles/PurchaseCard.css";
 
 const PurchaseCard = ({purchase}) => {
   return (
-    <article className="purchasescard">
-      <div className="purchasescard__container">
+    <article className="purchaseCard__container">
+      <div className="purchaseCard__info">
         <div className="purchasescard__img">
           <img src={purchase?.product.images[0].url} alt="" />
         </div>

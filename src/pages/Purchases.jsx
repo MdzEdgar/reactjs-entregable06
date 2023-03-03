@@ -16,14 +16,12 @@ const Purchases = () => {
   return (
 <main className="purchases">
       <section className="purchases__container">
-        <section className="purchases__container">
           <h3 className="purchases__title">My purchases</h3>
           <section className="purchases__info">
             {purchases?.map((purchase) => (
               <PurchaseCard purchase={purchase} key={purchase?.id} />
             ))}
           </section>
-        </section>
       </section>
     </main>
   );
