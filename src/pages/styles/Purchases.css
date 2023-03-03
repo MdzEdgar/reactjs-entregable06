@@ -1,0 +1,25 @@
+.purchases {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.purchases__title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #515151;
+  position: inherit;
+}
+
+.purchases__info {
+  align-items: center;
+  display: flex;
+  padding-top: 20px;
+  flex-direction: column;
+  gap: 100px;
+}
